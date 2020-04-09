@@ -18,10 +18,10 @@ const covid19ImpactEstimator = (data) => {
     impactIBRT = impactCI * (2 ** Math.floor(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(monthsToDays / 3));
   }
-  const impactSCBRT = impactIBRT * 0.15;
-  const severeImpactSCBRT = severeImpactIBRT * 0.15;
-  const impactHBBRT = data.totalHospitalBeds * 0.35 - impactSCBRT;
-  const severeImpactHBBRT = data.totalHospitalBeds * 0.35 - severeImpactSCBRT;
+  const impactSCBRT = Math.floor(impactIBRT * 0.15);
+  const severeImpactSCBRT = Math.floor(severeImpactIBRT * 0.15);
+  const impactHBBRT = Math.floor(data.totalHospitalBeds * 0.35 - impactSCBRT);
+  const severeImpactHBBRT = Math.floor(data.totalHospitalBeds * 0.35 - severeImpactSCBRT);
   return {
     data: input,
     impact: {
