@@ -1,6 +1,5 @@
 const covid19ImpactEstimator = (data) => {
   const input = data;
-  // Challange one
   const impactCI = data.reportedCases * 10;
   const severeImpactCI = data.reportedCases * 50;
   let impactIBRT;
@@ -19,7 +18,6 @@ const covid19ImpactEstimator = (data) => {
     impactIBRT = impactCI * (2 ** Math.round(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.round(monthsToDays / 3));
   }
-  // Challange two
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
   const impactHBBRT = data.totalHospitalBeds * 0.35 - impactSCBRT;
