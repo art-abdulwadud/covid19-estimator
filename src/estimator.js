@@ -1,7 +1,9 @@
 const covid19ImpactEstimator = (data) => {
   const input = data;
-  let impactCI = data.reportedCases * 10, severeImpactCI = data.reportedCases * 50;
-  let impactIBRT, severeImpactIBRT;
+  const impactCI = data.reportedCases * 10,;
+  const severeImpactCI = data.reportedCases * 50
+  let impactIBRT;
+  let severeImpactIBRT;
   if(data.periodType === 'days'){
   	impactIBRT = impactCI * (Math.pow(2 ,Math.round(data.timeToElapse / 3)));
   	severeImpactIBRT = severeImpactCI * (Math.pow(2 ,Math.round(data.timeToElapse / 3)));
