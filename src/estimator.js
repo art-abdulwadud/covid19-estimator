@@ -20,21 +20,21 @@ const covid19ImpactEstimator = (data) => {
   }
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
-  const impactHBBRT = data.totalHospitalBeds * 0.35 - impactSCBRT;
-  const severeImpactHBBRT = data.totalHospitalBeds * 0.35 - severeImpactSCBRT;
+  const impactHBBRT = Math.round(data.totalHospitalBeds * 0.35 - impactSCBRT);
+  const severeImpactHBBRT = Math.round(data.totalHospitalBeds * 0.35 - severeImpactSCBRT);
   return {
     data: input,
     impact: {
       currentlyInfected: impactCI,
       infectionsByRequestedTime: impactIBRT,
       severeCasesByRequestedTime: impactSCBRT,
-      hospitalBedsByRequestedTime: Math.round(impactHBBRT)
+      hospitalBedsByRequestedTime: impactHBBRT)
     },
     severeImpact: {
       currentlyInfected: severeImpactCI,
       infectionsByRequestedTime: severeImpactIBRT,
       severeCasesByRequestedTime: severeImpactSCBRT,
-      hospitalBedsByRequestedTime: Math.round(severeImpactHBBRT)
+      hospitalBedsByRequestedTime: severeImpactHBBRT
     }
   };
 };
