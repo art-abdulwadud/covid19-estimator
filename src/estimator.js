@@ -9,12 +9,12 @@ const covid19ImpactEstimator = (data) => {
     severeImpactIBRT = severeImpactCI * (2 ** Math.round(data.timeToElapse / 3));
   }
   if (data.periodType === 'weeks') {
-    let weeksToDays = data.timeToElapse * 7;
+    const weeksToDays = data.timeToElapse * 7;
     impactIBRT = impactCI * (2 ** Math.round(weeksToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.round(weeksToDays / 3));
   }
   if (data.periodType === 'months') {
-    let monthsToDays = data.timeToElapse * 30;
+    const monthsToDays = data.timeToElapse * 30;
     impactIBRT = impactCI * (2 ** Math.round(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.round(monthsToDays / 3));
   }
@@ -26,7 +26,7 @@ const covid19ImpactEstimator = (data) => {
     },
     severeImpact: {
       currentlyInfected: severeImpactCI,
-	  infectionsByRequestedTime: severeImpactIBRT
+      infectionsByRequestedTime: severeImpactIBRT
     }
   };
 };
