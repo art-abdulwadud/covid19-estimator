@@ -2,30 +2,32 @@ const covid19ImpactEstimator = (data) => {
   const input = data;
   const impactCI = data.reportedCases * 10;
   const severeImpactCI = data.reportedCases * 50;
+  const days = data.timeToElapse;
+  const aDIP = data.region.avgDailyIncomePopulation;
+  const aDIUSD = data.region.avgDailyIncomeInUSD
   let impactIBRT;
   let severeImpactIBRT;
   let impactDIF;
   let severeImpactDIF;
   if (data.periodType === 'days') {
-    const days = data.timeToElapse;
     impactIBRT = impactCI * (2 ** Math.trunc(days / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.trunc(days / 3));
-    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
+    impactDIF = (impactIBRT * aDIP * aDIUSD) / days;
+    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / 30;
   }
   if (data.periodType === 'weeks') {
-    const weeksToDays = data.timeToElapse * 7;
+    const weeksToDays = days * 7;
     impactIBRT = impactCI * (2 ** Math.trunc(weeksToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.trunc(weeksToDays / 3));
-    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / weeksToDays;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / weeksToDays;
+    impactDIF = (impactIBRT * aDIP * aDIUSD) / weeksToDays;
+    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / 30;
   }
   if (data.periodType === 'months') {
     const monthsToDays = data.timeToElapse * 30;
     impactIBRT = impactCI * (2 ** Math.trunc(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.trunc(monthsToDays / 3));
-    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / monthsToDays;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / monthsToDays;
+    impactDIF = (impactIBRT * aDIP * aDIUSD) / monthsToDays;
+    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / 30;
   }
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
