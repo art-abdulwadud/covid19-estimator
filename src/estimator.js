@@ -7,7 +7,7 @@ const covid19ImpactEstimator = (data) => {
   let impactDIF;
   let severeImpactDIF;
   if (data.periodType === 'days') {
-  	let days = data.timeToElapse;
+    const days = data.timeToElapse;
     impactIBRT = impactCI * (2 ** Math.floor(days / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(days / 3));
     impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
