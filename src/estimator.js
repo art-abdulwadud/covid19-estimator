@@ -6,8 +6,8 @@ const covid19ImpactEstimator = (data) => {
   let severeImpactIBRT;
   let impactCFICU;
   let severeImpactCFICU;
-  const impactCFV;
-  const severeImpactCFV;
+  let impactCFV;
+  let severeImpactCFV;
   let impactDIF;
   let severeImpactDIF;
   if (data.periodType === 'days') {
