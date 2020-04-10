@@ -34,8 +34,8 @@ const covid19ImpactEstimator = (data) => {
   const severeImpactCFICU = Math.trunc(severeImpactIBRT * 0.05);
   const impactCFV = Math.trunc(impactIBRT * 0.02);
   const severeImpactCFV = Math.trunc(severeImpactIBRT * 0.02);
-  impactDIF = Math.trunc(impactDIF)
-  severeImpactDIF = Math.trunc(severeImpactDIF)
+  impactDIF = Math.trunc(impactDIF);
+  severeImpactDIF = Math.trunc(severeImpactDIF);
   return {
     data: input,
     impact: {
