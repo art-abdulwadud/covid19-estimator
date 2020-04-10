@@ -4,7 +4,7 @@ const covid19ImpactEstimator = (data) => {
   const severeImpactCI = data.reportedCases * 50;
   const days = data.timeToElapse;
   const aDIP = data.region.avgDailyIncomePopulation;
-  const aDIUSD = data.region.avgDailyIncomeInUSD
+  const aDIUSD = data.region.avgDailyIncomeInUSD;
   let impactIBRT;
   let severeImpactIBRT;
   let impactDIF;
