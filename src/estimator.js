@@ -13,21 +13,21 @@ const covid19ImpactEstimator = (data) => {
     impactIBRT = impactCI * (2 ** Math.trunc(days / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.trunc(days / 3));
     impactDIF = (impactIBRT * aDIP * aDIUSD) / days;
-    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / 30;
+    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / days;
   }
   if (data.periodType === 'weeks') {
     const weeksToDays = days * 7;
     impactIBRT = impactCI * (2 ** Math.trunc(weeksToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.trunc(weeksToDays / 3));
     impactDIF = (impactIBRT * aDIP * aDIUSD) / weeksToDays;
-    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / 30;
+    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / weeksToDays;
   }
   if (data.periodType === 'months') {
     const monthsToDays = data.timeToElapse * 30;
     impactIBRT = impactCI * (2 ** Math.trunc(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.trunc(monthsToDays / 3));
     impactDIF = (impactIBRT * aDIP * aDIUSD) / monthsToDays;
-    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / 30;
+    severeImpactDIF = (severeImpactIBRT * aDIP * aDIUSD) / monthsToDays;
   }
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
