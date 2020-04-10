@@ -7,10 +7,11 @@ const covid19ImpactEstimator = (data) => {
   let impactDIF;
   let severeImpactDIF;
   if (data.periodType === 'days') {
-    impactIBRT = impactCI * (2 ** Math.floor(data.timeToElapse / 3));
-    severeImpactIBRT = severeImpactCI * (2 ** Math.floor(data.timeToElapse / 3));
-    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / data.timeToElapse;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / data.timeToElapse;
+  	let days = data.timeToElapse;
+    impactIBRT = impactCI * (2 ** Math.floor(days / 3));
+    severeImpactIBRT = severeImpactCI * (2 ** Math.floor(days / 3));
+    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
+    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
   }
   if (data.periodType === 'weeks') {
     const weeksToDays = data.timeToElapse * 7;
