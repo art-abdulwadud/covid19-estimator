@@ -5,27 +5,23 @@ const covid19ImpactEstimator = (data) => {
   let impactIBRT;
   let severeImpactIBRT;
   let impactDIF;
-  let severeImpactDIF;
   if (data.periodType === 'days') {
     const days = data.timeToElapse;
     impactIBRT = impactCI * (2 ** Math.floor(days / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(days / 3));
     impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / days;
   }
   if (data.periodType === 'weeks') {
     const weeksToDays = data.timeToElapse * 7;
     impactIBRT = impactCI * (2 ** Math.floor(weeksToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(weeksToDays / 3));
     impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / weeksToDays;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / weeksToDays;
   }
   if (data.periodType === 'months') {
     const monthsToDays = data.timeToElapse * 30;
     impactIBRT = impactCI * (2 ** Math.floor(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(monthsToDays / 3));
     impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / monthsToDays;
-    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD) / monthsToDays;
   }
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
@@ -36,7 +32,6 @@ const covid19ImpactEstimator = (data) => {
   const impactCFV = Math.trunc(impactIBRT * 0.02);
   const severeImpactCFV = Math.trunc(severeImpactIBRT * 0.02);
   impactDIF = Math.trunc(impactDIF);
-  severeImpactDIF = Math.trunc(severeImpactDIF);
   return {
     data: input,
     impact: {
@@ -55,7 +50,7 @@ const covid19ImpactEstimator = (data) => {
       hospitalBedsByRequestedTime: severeImpactHBBRT,
       casesForICUByRequestedTime: severeImpactCFICU,
       casesForVentilatorsByRequestedTime: severeImpactCFV,
-      dollarsInFlight: severeImpactDIF
+      dollarsInFlight: 0
     }
   };
 };
