@@ -5,7 +5,7 @@ const covid19ImpactEstimator = (data) => {
   let impactIBRT;
   let severeImpactIBRT;
   let impactCFICU;
-  let severeImpactCFICU
+  let severeImpactCFICU;
   const impactCFV;
   const severeImpactCFV;
   let impactDIF;
