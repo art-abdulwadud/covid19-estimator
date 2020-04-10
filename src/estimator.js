@@ -9,27 +9,27 @@ const covid19ImpactEstimator = (data) => {
   if (data.periodType === 'days') {
     impactIBRT = impactCI * (2 ** Math.floor(data.timeToElapse / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(data.timeToElapse / 3));
-    impactDIF = impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * data.timeToElapse;
-    severeImpactDIF = severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * data.timeToElapse;
+    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * data.timeToElapse).toFixed(2);
+    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * data.timeToElapse).toFixed(2);
   }
   if (data.periodType === 'weeks') {
     const weeksToDays = data.timeToElapse * 7;
     impactIBRT = impactCI * (2 ** Math.floor(weeksToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(weeksToDays / 3));
-    impactDIF = impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * weeksToDays;
-    severeImpactDIF = severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * weeksToDays;
+    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * weeksToDays).toFixed(2);
+    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * weeksToDays).toFixed(2);
   }
   if (data.periodType === 'months') {
     const monthsToDays = data.timeToElapse * 30;
     impactIBRT = impactCI * (2 ** Math.floor(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(monthsToDays / 3));
-    impactDIF = impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * monthsToDays;
-    severeImpactDIF = severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * monthsToDays;
+    impactDIF = (impactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * monthsToDays).toFixed(2);
+    severeImpactDIF = (severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * monthsToDays).toFixed(2);
   }
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
-  const impactHBBRT = Math.ceil(data.totalHospitalBeds * 0.35) - impactSCBRT;
-  const severeImpactHBBRT = Math.ceil(data.totalHospitalBeds * 0.35) - severeImpactSCBRT;
+  const impactHBBRT = Math.trunc(data.totalHospitalBeds * 0.35) - impactSCBRT;
+  const severeImpactHBBRT = Math.trunc(data.totalHospitalBeds * 0.35) - severeImpactSCBRT;
   const impactCFICU = Math.trunc(impactIBRT * 0.05);
   const severeImpactCFICU = Math.trunc(severeImpactIBRT * 0.05);
   const impactCFV = Math.trunc(impactIBRT * 0.02);
