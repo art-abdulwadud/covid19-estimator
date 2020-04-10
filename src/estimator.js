@@ -34,6 +34,8 @@ const covid19ImpactEstimator = (data) => {
   const severeImpactCFICU = Math.trunc(severeImpactIBRT * 0.05);
   const impactCFV = Math.trunc(impactIBRT * 0.02);
   const severeImpactCFV = Math.trunc(impactIBRT * 0.02);
+  impactDIF = parseFloat(impactDIF.toFixed(2))
+  severeImpactDIF = parseFloat(severeImpactDIF.toFixed(2))
   return {
     data: input,
     impact: {
@@ -43,7 +45,7 @@ const covid19ImpactEstimator = (data) => {
       hospitalBedsByRequestedTime: impactHBBRT,
       casesForICUByRequestedTime: impactCFICU,
       casesForVentilatorsByRequestedTime: impactCFV,
-      dollarsInFlight: impactDIF.toFixed(2)
+      dollarsInFlight: impactDIF
     },
     severeImpact: {
       currentlyInfected: severeImpactCI,
@@ -52,7 +54,7 @@ const covid19ImpactEstimator = (data) => {
       hospitalBedsByRequestedTime: severeImpactHBBRT,
       casesForICUByRequestedTime: severeImpactCFICU,
       casesForVentilatorsByRequestedTime: severeImpactCFV,
-      dollarsInFlight: severeImpactDIF.toFixed(2)
+      dollarsInFlight: severeImpactDIF
     }
   };
 };
