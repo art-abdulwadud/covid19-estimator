@@ -17,7 +17,6 @@ const covid19ImpactEstimator = (data) => {
     const monthsToDays = data.timeToElapse * 30;
     impactIBRT = impactCI * (2 ** Math.floor(monthsToDays / 3));
     severeImpactIBRT = severeImpactCI * (2 ** Math.floor(monthsToDays / 3));
-    severeImpactDIF = severeImpactIBRT * 0.65 * data.region.avgDailyIncomeInUSD * monthsToDays;
   }
   const impactSCBRT = impactIBRT * 0.15;
   const severeImpactSCBRT = severeImpactIBRT * 0.15;
