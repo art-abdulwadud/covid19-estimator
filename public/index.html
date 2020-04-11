@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- Personal CSS -->
-        <link rel="stylesheet" href="style.css" />
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <!-- Icon near the title -->
-        <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
-        <title>Covid19 Estimator</title>
-	</head>
-	<body>
-	  <label for="basic-url">Provide information to estimate</label>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Population</span>
-        </div>
-        <input type="text" class="form-control" aria-label="population">
-      </div>
-	  <script src="js/aos.js"></script>
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="jquery/jquery-3.3.1.slim.min.js"></script>
-      <script src="popper/popper.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="title" content="Covid19 Estimator" />
+    <meta
+      name="description"
+      content="Estimates number of people likely to be infected depending on the number of reported cases"
+    />
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Icon near the title -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
+    <title>Covid19 Estimator</title>
+  </head>
+  <body>
+    <h1>Covid19 Estimator</h1>
+    <input type="number" name="population" id="population" data-population />
+    <input
+      type="number"
+      name="time-to-elapse"
+      id="time-to-elapse"
+      data-time-to-elapse
+    />
+    <input
+      type="number"
+      name="reported-cases"
+      id="reported-cases"
+      data-reported-cases
+    />
+    <input
+      type="number"
+      name="total-hospital-beds"
+      id="total-hospital-beds"
+      data-total-hospital-beds
+    />
+    <select name="period-type" id="period-type" data-period-type>
+      <option value="days">Days</option>
+      <option value="weeks">Weeks</option>
+      <option value="months">Months</option>
+    </select>
+    <button type="submit" data-go-estimate>Estimate</button>
+  </body>
 </html>
