@@ -4,9 +4,20 @@ body{
 }
 /** Images section **/
 .heading{
-	font-family: 'Montserrat Subrayada', sans-serif;
-	font-style: italic;
-	text-align: center;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: calc(110% + 30px);
+}
+.sub-heading{
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: calc(100% + 20px);
+}
+.medium-text{
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: calc(90% + 10px);
+}
+.small-text{
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-size: calc(80% + 8px);
 }
 /*
   ##Device = Desktops
