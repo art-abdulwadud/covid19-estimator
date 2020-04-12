@@ -1,4 +1,5 @@
 import covid19ImpactEstimator from './estimator';
+
 const regionName = document.querySelector('[data-region-name]');
 const avgAge = document.querySelector('[data-avg-age]');
 const avgDailyIncomeInUSD = document.querySelector('[data-avg-daily-income]');
@@ -9,10 +10,7 @@ const reportedCases = document.querySelector('[data-reported-cases]');
 const population = document.querySelector('[data-population]');
 const totalHospitalBeds = document.querySelector('[data-total-hospital-beds]');
 const estimateBtn = document.querySelector('[data-go-estimate]');
-const inputTags = document.querySelectorAll('input[type="number"]');
-const capitalize = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 const getInputData = () => {
   const data = {
     region: {
@@ -27,14 +25,17 @@ const getInputData = () => {
     population: population.value,
     totalHospitalBeds: totalHospitalBeds.value
   };
-  console.log(data);
-};
+  const output = covid19ImpactEstimator(data);
+  return output;
+  
+};	
 estimateBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  if(avgAge.value != "" && regionName.value != "" 
-  	&& avgDailyIncomePopulation.value != "" && avgDailyIncomeInUSD.value != "" 
-  	&& timeToElapse.value != "" && reportedCases.value != "" && population.value != "" 
-  	&& totalHospitalBeds.value != ""){
+  const check1 = avgAge.value !== '' && regionName.value !== '';
+  const check2 = avgDailyIncomePopulation.value !== '' && avgDailyIncomeInUSD.value !== '';
+  const check3 = timeToElapse.value !== '' && reportedCases.value !== '';
+  const check4 = population.value !== '' && totalHospitalBeds.value !== '';
+  if (check1 && check2 && check3 && check4) {
+    e.preventDefault();
     getInputData();
   }
 });
