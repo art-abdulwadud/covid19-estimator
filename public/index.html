@@ -12,13 +12,166 @@
       content="Estimates number of people likely to be infected depending on the number of reported cases"
     />
     <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="fonts/ubuntu-font.css" />
     <!-- Icon near the title -->
     <link rel="shortcut icon" type="image/x-icon" href="img/logo.png" />
     <title>Covid19 Estimator</title>
   </head>
   <body>
-    <div id="root"></div>
+    <main>
+      <h1 class="text-center heading">Covid19 Estimator</h1>
+      <form class="m-2">
+        <label htmlFor="basic-url" class="sub-heading">
+          Region
+        </label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Region name</label>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="e.g Africa"
+            aria-label="name"
+            aria-describedby="name"
+            data-region-name
+            required
+            maxlength="20"
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Region Average Age</label>
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 17"
+            aria-label="avgAge"
+            data-avg-age
+            required
+            min="1"
+            max="90"
+          />
+        </div>
+        <label htmlFor="basic-url" class="medium-text">
+          Average daily income in USD
+        </label>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">$</span>
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 3.5"
+            aria-label="avgDailyIncomeInUSD"
+            data-avg-daily-income
+            required
+            step="0.01"
+          />
+        </div>
+        <label htmlFor="basic-url" class="medium-text">
+          Average daily income population
+        </label>
+        <small id="emailHelp" class="form-text text-muted">
+          Use decimal points!
+        </small>
+        <div class="input-group mb-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 0.71 represents 71%"
+            aria-label="avgDailyIncomePopulation"
+            data-avg-daily-income-p
+            required
+            step="0.01"
+          />
+        </div>
+        <label htmlFor="basic-url" class="sub-heading">
+          Info
+        </label>
+        <small id="emailHelp" class="form-text text-muted">
+          Estimate in days/weeks/months?
+        </small>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Period type</label>
+          </div>
+          <select
+            id="period-type"
+            class="form-control form-control-lg"
+            data-period-type
+          >
+            <option value="days">Days</option>
+            <option value="weeks">Weeks</option>
+            <option value="months">Months</option>
+          </select>
+          <br />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Time to elapse</label>
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 12"
+            aria-label="timeToElapse"
+            data-time-to-elapse
+            required
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Reported cases</label>
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 10"
+            aria-label="reportedCases"
+            data-reported-cases
+            required
+          />
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Population</label>
+          </div>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 66622705"
+            aria-label="population"
+            data-population
+            required
+          />
+        </div>
+        <label htmlFor="basic-url" class="medium-text">
+          Total hostpital beds
+        </label>
+        <div class="input-group mb-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="e.g 678874"
+            aria-label="totalHospitalBeds"
+            data-total-hospital-beds
+            required
+          />
+        </div>
+        <div class="input-group mb-3">
+          <input type="submit" class="btn btn-secondary" data-go-estimate value="Estimate" />
+        </div>
+      </form>
+    </main>
     <script src="bundle.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="jquery/jquery-3.3.1.slim.min.js"></script>
+    <script src="popper/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
