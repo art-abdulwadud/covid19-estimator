@@ -23,19 +23,19 @@
     <main>
       <h1 class="text-center heading">Covid19 Estimator</h1>
       <form class="m-2">
-        <label htmlFor="basic-url" class="sub-heading">
+        <label class="sub-heading">
           Region
         </label>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text">Region name</label>
+            <label for="region-name" class="input-group-text">Region name</label>
           </div>
           <input
             type="text"
             class="form-control"
             placeholder="e.g Africa"
-            aria-label="name"
-            aria-describedby="name"
+            name="region-name"
+            id="region-name"
             data-region-name
             required
             maxlength="20"
@@ -43,20 +43,21 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text">Region Average Age</label>
+            <label for="avg-age" class="input-group-text">Region Average Age</label>
           </div>
           <input
             type="number"
             class="form-control"
             placeholder="e.g 17"
-            aria-label="avgAge"
+            name="avg-age"
+            id="avg-age"
             data-avg-age
             required
             min="1"
             max="90"
           />
         </div>
-        <label htmlFor="basic-url" class="medium-text">
+        <label for="avg-daily-income" class="medium-text">
           Average daily income in USD
         </label>
         <div class="input-group mb-3">
@@ -67,16 +68,16 @@
             type="number"
             class="form-control"
             placeholder="e.g 3.5"
-            aria-label="avgDailyIncomeInUSD"
+            id="avg-daily-income"
             data-avg-daily-income
             required
             step="0.01"
           />
         </div>
-        <label htmlFor="basic-url" class="medium-text">
+        <label for="avg-daily-income-p" class="medium-text">
           Average daily income population
         </label>
-        <small id="emailHelp" class="form-text text-muted">
+        <small class="form-text text-muted">
           Use decimal points!
         </small>
         <div class="input-group mb-3">
@@ -84,21 +85,21 @@
             type="number"
             class="form-control"
             placeholder="e.g 0.71 represents 71%"
-            aria-label="avgDailyIncomePopulation"
+            id="avg-daily-income-p"
             data-avg-daily-income-p
             required
             step="0.01"
           />
         </div>
-        <label htmlFor="basic-url" class="sub-heading">
+        <label for="basic-url" class="sub-heading">
           Info
         </label>
-        <small id="emailHelp" class="form-text text-muted">
+        <small class="form-text text-muted">
           Estimate in days/weeks/months?
         </small>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text">Period type</label>
+            <label for="period-type" class="input-group-text">Period type</label>
           </div>
           <select
             id="period-type"
@@ -113,44 +114,44 @@
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text">Time to elapse</label>
+            <label for="time-to-elapse" class="input-group-text">Time to elapse</label>
           </div>
           <input
             type="number"
             class="form-control"
             placeholder="e.g 12"
-            aria-label="timeToElapse"
+            id="time-to-elapse"
             data-time-to-elapse
             required
           />
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text">Reported cases</label>
+            <label for="reported-cases" class="input-group-text">Reported cases</label>
           </div>
           <input
             type="number"
             class="form-control"
             placeholder="e.g 10"
-            aria-label="reportedCases"
+            id="reported-cases"
             data-reported-cases
             required
           />
         </div>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <label class="input-group-text">Population</label>
+            <label for="population" class="input-group-text">Population</label>
           </div>
           <input
             type="number"
             class="form-control"
             placeholder="e.g 66622705"
-            aria-label="population"
+            id="population"
             data-population
             required
           />
         </div>
-        <label htmlFor="basic-url" class="medium-text">
+        <label for="hostpital-beds" class="medium-text">
           Total hostpital beds
         </label>
         <div class="input-group mb-3">
@@ -158,7 +159,7 @@
             type="number"
             class="form-control"
             placeholder="e.g 678874"
-            aria-label="totalHospitalBeds"
+            id="hostpital-beds"
             data-total-hospital-beds
             required
           />
