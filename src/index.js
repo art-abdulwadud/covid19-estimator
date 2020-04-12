@@ -27,8 +27,7 @@ const getInputData = () => {
   };
   const output = covid19ImpactEstimator(data);
   return output;
-  
-};	
+};
 estimateBtn.addEventListener('click', (e) => {
   const check1 = avgAge.value !== '' && regionName.value !== '';
   const check2 = avgDailyIncomePopulation.value !== '' && avgDailyIncomeInUSD.value !== '';
